@@ -1,5 +1,0 @@
-.gitignore
-*.crt
-*.key
-*.csr
-pass.txt
