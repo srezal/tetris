@@ -1,0 +1,86 @@
+/* Стиль контейнера */
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Контент начинается сверху страницы */
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border: 5px solid #09f;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #09f;
+    text-shadow: 0 0 10px #09f, 0 0 20px #09f;
+    margin-bottom: 20px;
+}
+
+/* Стиль для формы */
+.form-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.form-container h2 {
+    color: #09f;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стиль для input */
+input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 2px solid #09f;
+    margin-bottom: 20px;
+    background-color: #111;
+    color: #fff;
+}
+
+input[type="text"]::placeholder {
+    color: #888;
+}
+
+/* Стиль кнопки */
+.btn {
+    background-color: #09f;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0ff;
+}
+
+.btn:active {
+    background-color: #06c;
+}

@@ -1,0 +1,5 @@
+.gitgnore
+*.crt
+*.key
+*.csr
+pass.txt

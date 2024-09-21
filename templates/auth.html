@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тетрис - Ввод имени</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <script src="auth.js"></script>
+    <div class="container">
+        <h1>Тетрис</h1>
+        <div class="form-container">
+            <h2>Введите ваше имя:</h2>
+            <form action="/game">
+                <input type="text" id="username" name="username" placeholder="Ваше имя" required>
+                <button onclick="storeUsername()" type="submit" class="btn">Играть</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

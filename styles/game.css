@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Контент начинается сверху страницы */
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border: 5px solid #09f;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #09f;
+    text-shadow: 0 0 10px #09f, 0 0 20px #09f;
+    margin-bottom: 20px;
+}
+
+.game-layout {
+    display: flex;
+    justify-content: flex-start; /* Инструкции слева, canvas справа */
+    align-items: center; /* Выравнивание canvas по центру вертикали */
+    gap: 20px; /* Добавлен промежуток между блоком инструкций и canvas */
+}
+
+canvas {
+    background-color: #111;
+    border: 2px solid #09f;
+    align-self: center; /* Выравнивание canvas по центру вертикали */
+}
+
+
+.right_container{
+    text-align: left;
+    width: 40%; /* Задано 40% от ширины контейнера для инструкций */
+    align-self: flex-start; /* Инструкции размещены вверху */
+}
+
+
+.instructions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #09f;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Убедимся, что кнопка занимает только необходимую ширину */
+}
+
+.btn:hover {
+    background-color: #0ff;
+}
+
+.btn:active {
+    background-color: #06c;
+}
+
+/* Добавляем класс для выравнивания кнопки по левому краю */
+.btn-left {
+    margin-right: auto; /* Прижимаем кнопку к левому краю */
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-start; /* Прижимаем к левому краю */
+    margin-top: 20px;
+}
