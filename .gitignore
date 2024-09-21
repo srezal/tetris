@@ -1,4 +1,4 @@
-.gitgnore
+.gitignore
 *.crt
 *.key
 *.csr
