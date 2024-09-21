@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Играть в Тетрис</title>
+    <link rel="stylesheet" href="/styles/game_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Тетрис</h1>
+        <canvas id="gameCanvas" width="380" height="600"></canvas>
+        <div class="instructions">
+            <h2>Управление:</h2>
+            <p>⬅️ Стрелка влево - сдвинуть фигуру влево</p>
+            <p>➡️ Стрелка вправо - сдвинуть фигуру вправо</p>
+            <p>⬇️ Стрелка вниз - уронить фигуру</p>
+            <p>⬆️ Стрелка вверх - повернуть фигуру</p>
+        </div>
+        <a href="/" class="btn">Вернуться на главную</a>
+    </div>
+
+    <script src="/game_logic/logic.js"></script>
+</body>
+</html>
