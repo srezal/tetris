@@ -1,10 +1,8 @@
-/* Стиль контейнера */
-
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Контент начинается сверху страницы */
+    align-items: flex-start;
     min-height: 100vh;
     background-color: #000;
     color: #fff;
@@ -29,7 +27,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Стиль для формы */
+
 .form-container {
     background-color: #333;
     padding: 20px;
@@ -48,7 +46,7 @@ form {
     align-items: center;
 }
 
-/* Стиль для input */
+
 input[type="text"] {
     width: 100%;
     max-width: 400px;
@@ -65,7 +63,7 @@ input[type="text"]::placeholder {
     color: #888;
 }
 
-/* Стиль кнопки */
+
 .btn {
     background-color: #09f;
     color: #000;

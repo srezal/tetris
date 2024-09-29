@@ -1,10 +1,8 @@
-/* Контейнер */
-
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Контент начинается сверху страницы */
+    align-items: flex-start;
     min-height: 100vh;
     background-color: #000;
     color: #fff;
@@ -34,7 +32,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Таблица */
 .leaderboard {
     width: 100%;
     border-collapse: collapse;
@@ -55,7 +52,6 @@ h2 {
     font-weight: bold;
 }
 
-/* Стиль кнопки */
 .btn {
     background-color: #09f;
     color: #000;

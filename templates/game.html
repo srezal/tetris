@@ -9,10 +9,11 @@
 <body>
     <div class="container">
         <div class="game-layout">
-            <canvas id="gameCanvas" width="300" height="600"></canvas>
-            <div class="right_container">
-                <h2>Имя игрока: </h2> <h2 id="usernameLabel"></h2>
-                <h2>Очки: </h2><h2 id="scoreLabel"></h2>
+            <div class="leftContainer">
+                <div class="nextFigCanContainer">
+                    <h2>Следующая фигура:</h2>
+                    <canvas id="nextFigureCanvas" width="" height=""></canvas>
+                </div>
                 <div class="instructions">
                     <h2>Управление:</h2>
                     <p>⬅️ Стрелка влево - сдвинуть фигуру влево</p>
@@ -20,14 +21,22 @@
                     <p>⬇️ Стрелка вниз - уронить фигуру</p>
                     <p>⬆️ Стрелка вверх - повернуть фигуру</p>
                 </div>
-                <canvas id="nextFigureCanvas" width="180" height="180"></canvas>
                 <div class="btn-container">
                     <a href="index.html" class="btn">Вернуться на главную</a>
                 </div>
             </div>
+            <canvas id="gameCanvas" width="" height=""></canvas>
+            <div class="rightContainer">
+                <h2 class="labelName">Имя игрока</h2>
+                <div class="specLabel"><h2 id="usernameLabel"></h2></div>
+                <h2 class="labelName">Очки</h2>
+                <div class="specLabel"><h2 id="scoreLabel">0</h2></div>
+                <h2 class="labelName">Уровень</h2>
+                <div class="specLabel"><h2 id="levelLabel">0</h2></div>
+            </div>
         </div>
     </div>
 
-    <script src="logic.js"></script>
+    <script type="module" src="logic.js"></script>
 </body>
 </html>

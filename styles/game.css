@@ -8,7 +8,7 @@ body {
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Контент начинается сверху страницы */
+    align-items: flex-start;
     min-height: 100vh;
     background-color: #000;
     color: #fff;
@@ -22,7 +22,6 @@ body {
     border: 5px solid #09f;
     border-radius: 10px;
     width: 70%;
-    max-width: 1200px;
     margin: auto;
     overflow: hidden;
 }
@@ -36,22 +35,49 @@ h1 {
 
 .game-layout {
     display: flex;
-    justify-content: flex-start; /* Инструкции слева, canvas справа */
-    align-items: center; /* Выравнивание canvas по центру вертикали */
-    gap: 20px; /* Добавлен промежуток между блоком инструкций и canvas */
+    gap: 20px;
+    flex-direction: row;
 }
 
 canvas {
     background-color: #111;
     border: 2px solid #09f;
-    align-self: center; /* Выравнивание canvas по центру вертикали */
 }
 
 
-.right_container{
+#gameCanvas{
+    width: 33%;
+}
+
+
+.leftContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+    align-self: flex-start;
+}
+
+
+.nextFigCanContainer{
+    display: flex;
+    border: 3px solid #09f;
+    border-radius: 10px;
+    padding-top: 10px;
+    flex-direction: column;;
+}
+
+
+#nextFigureCanvas{
+    align-self: center;
+    margin: 20px;
+}
+
+
+.instructions{
     text-align: left;
-    width: 40%; /* Задано 40% от ширины контейнера для инструкций */
-    align-self: flex-start; /* Инструкции размещены вверху */
+    margin-top: 20px;
 }
 
 
@@ -60,9 +86,28 @@ canvas {
     margin-bottom: 10px;
 }
 
+
 .instructions p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+}
+
+
+.specLabel{
+    border: 3px solid #09f;
+    border-radius: 10px;
+    align-self: center;
+    padding: 10px;
+}
+
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 33%;
+    align-self: center;
+    gap: 20px;
 }
 
 .btn {
@@ -74,7 +119,7 @@ canvas {
     font-size: 1.2rem;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Убедимся, что кнопка занимает только необходимую ширину */
+    display: inline-block;
 }
 
 .btn:hover {
@@ -85,13 +130,9 @@ canvas {
     background-color: #06c;
 }
 
-/* Добавляем класс для выравнивания кнопки по левому краю */
-.btn-left {
-    margin-right: auto; /* Прижимаем кнопку к левому краю */
-}
-
 .btn-container {
     display: flex;
-    justify-content: flex-start; /* Прижимаем к левому краю */
-    margin-top: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: auto;
 }
