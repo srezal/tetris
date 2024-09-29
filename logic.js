@@ -1,4 +1,8 @@
-username = localStorage["tetris.username"];
+username = localStorage.getItem("tetris.username");
+
+if(username === null){
+    window.location.replace("https://localhost/auth");
+}
 
 const usernameLabel = document.getElementById('usernameLabel');
 usernameLabel.innerHTML = username
@@ -12,18 +16,9 @@ function updateScore(newScore){
 
 function updateRecord(score){
     let leaderboard = new Map(JSON.parse(localStorage["tetris.leaderboard"]));
-    if(leaderboard.has(username)){
-        console.log("if");
-        let prevRecord = Number(leaderboard.get(username));
-        console.log(prevRecord, score);
-        console.log(Math.max(prevRecord, score));
-        leaderboard.set(username, Math.max(prevRecord, score));
-    }
-    else{
-        console.log("else");
-        leaderboard.set(username, score);
-    }
-    console.log(Array.from(leaderboard.entries()), JSON.stringify(Array.from(leaderboard.entries())));
+    let prevRecord = 0;
+    if(leaderboard.has(username)) prevRecord = Number(leaderboard.get(username));
+    leaderboard.set(username, Math.max(prevRecord, score));
     localStorage.setItem("tetris.leaderboard", JSON.stringify(Array.from(leaderboard.entries())));
 }
 
@@ -139,11 +134,11 @@ function generateSequence() {
     const sequence = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'];
 
     while (sequence.length) {
-    // случайным образом находим любую из них
-    const rand = getRandomInt(0, sequence.length - 1);
-    const name = sequence.splice(rand, 1)[0];
-    // помещаем выбранную фигуру в игровой массив с последовательностями
-    tetrominoSequence.push(name);
+        // случайным образом находим любую из них
+        const rand = getRandomInt(0, sequence.length - 1);
+        const name = sequence.splice(rand, 1)[0];
+        // помещаем выбранную фигуру в игровой массив с последовательностями
+        tetrominoSequence.push(name);
     }
 }
 
@@ -151,7 +146,7 @@ function generateSequence() {
 function getNextTetromino() {
     // если следующей нет — генерируем
     if (tetrominoSequence.length === 0) {
-    generateSequence();
+        generateSequence();
     }
     // берём первую фигуру из массива
     const name = tetrominoSequence.pop();
@@ -361,41 +356,41 @@ document.addEventListener('keydown', function(e) {
     if (gameOver) return;
 
     // стрелки влево и вправо
-    if (e.which === 37 || e.which === 39) {
-    const col = e.which === 37
-        // если влево, то уменьшаем индекс в столбце, если вправо — увеличиваем
-        ? tetromino.col - 1
-        : tetromino.col + 1;
+    if (e.key === "ArrowLeft" || e.code === "ArrowRight") {
+        const col = e.key === "ArrowLeft"
+            // если влево, то уменьшаем индекс в столбце, если вправо — увеличиваем
+            ? tetromino.col - 1
+            : tetromino.col + 1;
 
-    // если так ходить можно, то запоминаем текущее положение 
-    if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-        tetromino.col = col;
-    }
+        // если так ходить можно, то запоминаем текущее положение 
+        if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+            tetromino.col = col;
+        }
     }
 
     // стрелка вверх — поворот
-    if (e.which === 38) {
-    // поворачиваем фигуру на 90 градусов
-    const matrix = rotate(tetromino.matrix);
-    // если так ходить можно — запоминаем
-    if (isValidMove(matrix, tetromino.row, tetromino.col)) {
-        tetromino.matrix = matrix;
-    }
+    if (e.key === "ArrowUp") {
+        // поворачиваем фигуру на 90 градусов
+        const matrix = rotate(tetromino.matrix);
+        // если так ходить можно — запоминаем
+        if (isValidMove(matrix, tetromino.row, tetromino.col)) {
+            tetromino.matrix = matrix;
+        }
     }
 
     // стрелка вниз — ускорить падение
-    if(e.which === 40) {
-    // смещаем фигуру на строку вниз
-    const row = tetromino.row + 1;
-    // если опускаться больше некуда — запоминаем новое положение
-    if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
-        tetromino.row = row - 1;
-        // ставим на место и смотрим на заполненные ряды
-        placeTetromino();
-        return;
-    }
-    // запоминаем строку, куда стала фигура
-    tetromino.row = row;
+    if(e.key === "ArrowDown") {
+        // смещаем фигуру на строку вниз
+        const row = tetromino.row + 1;
+        // если опускаться больше некуда — запоминаем новое положение
+        if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
+            tetromino.row = row - 1;
+            // ставим на место и смотрим на заполненные ряды
+            placeTetromino();
+            return;
+        }
+        // запоминаем строку, куда стала фигура
+        tetromino.row = row;
     }
 });
 
